@@ -6,6 +6,11 @@
 /*****************************************************/
 /* #INCLUDES                                         */
 /*****************************************************/
+#include "module.h"
+#include "Rte_EcuM.h"
+#include "Rte_SchM.h"
+#include "Rte_Unused.h"
+
 #include "Rte.h"
 
 /*****************************************************/
@@ -19,6 +24,16 @@
 /*****************************************************/
 /* TYPEDEFS                                          */
 /*****************************************************/
+class module_Rte:
+      public abstract_module
+   ,  public interface_Rte_EcuM
+   ,  public interface_Rte_SchM
+{
+   public:
+      FUNC(void, RTE_CODE) InitFunction   (void);
+      FUNC(void, RTE_CODE) DeInitFunction (void);
+      FUNC(void, RTE_CODE) MainFunction   (void);
+};
 
 /*****************************************************/
 /* CONSTS                                            */
@@ -31,10 +46,22 @@
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
+module_Rte Rte;
+
+interface_Rte_EcuM *EcuM_Client_ptr_Rte = &Rte;
+interface_Rte_SchM *SchM_Client_ptr_Rte = &Rte;
 
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
+FUNC(void, RTE_CODE) InitFunction(void){
+}
+
+FUNC(void, RTE_CODE) DeInitFunction(void){
+}
+
+FUNC(void, RTE_CODE) MainFunction(void){
+}
 
 /*****************************************************/
 /* EOF                                               */
