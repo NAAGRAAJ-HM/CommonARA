@@ -11,8 +11,6 @@
 #include "Rte_SchM.h"
 #include "Rte_Unused.h"
 
-#include "Rte.h"
-
 /*****************************************************/
 /* #DEFINES                                          */
 /*****************************************************/
@@ -33,6 +31,8 @@ class module_Rte:
       FUNC(void, RTE_CODE) InitFunction   (void);
       FUNC(void, RTE_CODE) DeInitFunction (void);
       FUNC(void, RTE_CODE) MainFunction   (void);
+      FUNC(void, RTE_CODE) Dummy_Rte_EcuM (void);
+      FUNC(void, RTE_CODE) Dummy_Rte_SchM (void);
 };
 
 /*****************************************************/
@@ -54,13 +54,13 @@ interface_Rte_SchM *SchM_Client_ptr_Rte = &Rte;
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-FUNC(void, RTE_CODE) InitFunction(void){
+FUNC(void, RTE_CODE) module_Rte::InitFunction(void){
 }
 
-FUNC(void, RTE_CODE) DeInitFunction(void){
+FUNC(void, RTE_CODE) module_Rte::DeInitFunction(void){
 }
 
-FUNC(void, RTE_CODE) MainFunction(void){
+FUNC(void, RTE_CODE) module_Rte::MainFunction(void){
 }
 
 /*****************************************************/
