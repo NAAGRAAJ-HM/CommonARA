@@ -24,8 +24,6 @@
 /*****************************************************/
 class module_Rte:
       public abstract_module
-   ,  public interface_Rte_EcuM
-   ,  public interface_Rte_SchM
 {
    public:
       FUNC(void, RTE_CODE) InitFunction   (void);
@@ -46,10 +44,9 @@ class module_Rte:
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-module_Rte Rte;
-
-interface_Rte_EcuM *EcuM_Client_ptr_Rte = &Rte;
-interface_Rte_SchM *SchM_Client_ptr_Rte = &Rte;
+module_Rte     Rte;
+infEcuMClient* gptrinfEcuMClient_Rte = &Rte;
+infSchMClient* gptrinfSchMClient_Rte = &Rte;
 
 /*****************************************************/
 /* FUNCTIONS                                         */
