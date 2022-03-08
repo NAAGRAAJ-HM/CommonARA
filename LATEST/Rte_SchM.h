@@ -32,7 +32,7 @@
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-extern interface_Rte_SchM *SchM_Client_ptr_Rte;
+extern infSchMClient *gptrinfSchMClient_Rte;
 
 /*****************************************************/
 /* FUNCTIONS                                         */
