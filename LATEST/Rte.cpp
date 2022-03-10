@@ -7,8 +7,8 @@
 /* #INCLUDES                                         */
 /*****************************************************/
 #include "module.h"
-#include "Rte_EcuM.h"
-#include "Rte_SchM.h"
+#include "infRte_EcuM.h"
+#include "infRte_SchM.h"
 #include "Rte_Unused.h"
 
 /*****************************************************/
@@ -28,9 +28,8 @@ class module_Rte:
    public:
       FUNC(void, RTE_CODE) InitFunction   (void);
       FUNC(void, RTE_CODE) DeInitFunction (void);
+      FUNC(void, RTE_CODE) GetVersionInfo (void);
       FUNC(void, RTE_CODE) MainFunction   (void);
-      FUNC(void, RTE_CODE) Dummy_Rte_EcuM (void);
-      FUNC(void, RTE_CODE) Dummy_Rte_SchM (void);
 };
 
 /*****************************************************/
@@ -46,6 +45,7 @@ class module_Rte:
 /*****************************************************/
 module_Rte     Rte;
 infEcuMClient* gptrinfEcuMClient_Rte = &Rte;
+infDcmClient*  gptrinfDcmClient_Rte  = &Rte;
 infSchMClient* gptrinfSchMClient_Rte = &Rte;
 
 /*****************************************************/
@@ -55,6 +55,9 @@ FUNC(void, RTE_CODE) module_Rte::InitFunction(void){
 }
 
 FUNC(void, RTE_CODE) module_Rte::DeInitFunction(void){
+}
+
+FUNC(void, RTE_CODE) module_Rte::GetVersionInfo(void){
 }
 
 FUNC(void, RTE_CODE) module_Rte::MainFunction(void){
