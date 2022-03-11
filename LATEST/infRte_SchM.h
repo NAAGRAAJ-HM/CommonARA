@@ -1,6 +1,6 @@
 #pragma once
 /*****************************************************/
-/* File   : Rte_EcuM.h                               */
+/* File   : infRte_SchM.h                            */
 /* Author : Naagraaj HM                              */
 /*****************************************************/
 
@@ -32,7 +32,7 @@
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-extern infEcuMClient* gptrinfEcuMClient_Rte;
+extern infSchMClient* gptrinfSchMClient_Rte;
 
 /*****************************************************/
 /* FUNCTIONS                                         */

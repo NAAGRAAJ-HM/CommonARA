@@ -1,15 +1,13 @@
+#pragma once
 /*****************************************************/
-/* File   : Rte.cpp                                  */
+/* File   : infRte_EcuM.h                            */
 /* Author : Naagraaj HM                              */
 /*****************************************************/
 
 /*****************************************************/
 /* #INCLUDES                                         */
 /*****************************************************/
-#include "module.h"
-#include "infRte_EcuM.h"
-#include "infRte_Dcm.h"
-#include "infRte_SchM.h"
+#include "Compiler_Cfg_Rte.h"
 
 /*****************************************************/
 /* #DEFINES                                          */
@@ -22,15 +20,6 @@
 /*****************************************************/
 /* TYPEDEFS                                          */
 /*****************************************************/
-class module_Rte:
-      public abstract_module
-{
-   public:
-      FUNC(void, RTE_CODE) InitFunction   (void);
-      FUNC(void, RTE_CODE) DeInitFunction (void);
-      FUNC(void, RTE_CODE) GetVersionInfo (void);
-      FUNC(void, RTE_CODE) MainFunction   (void);
-};
 
 /*****************************************************/
 /* CONSTS                                            */
@@ -43,27 +32,11 @@ class module_Rte:
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-module_Rte     Rte;
-infEcuMClient* gptrinfEcuMClient_Rte = &Rte;
-infDcmClient*  gptrinfDcmClient_Rte  = &Rte;
-infSchMClient* gptrinfSchMClient_Rte = &Rte;
+extern infEcuMClient* gptrinfEcuMClient_Rte;
 
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-FUNC(void, RTE_CODE) module_Rte::InitFunction(void){
-}
-
-FUNC(void, RTE_CODE) module_Rte::DeInitFunction(void){
-}
-
-FUNC(void, RTE_CODE) module_Rte::GetVersionInfo(void){
-}
-
-FUNC(void, RTE_CODE) module_Rte::MainFunction(void){
-}
-
-#include "Rte_Unused.h"
 
 /*****************************************************/
 /* EOF                                               */
