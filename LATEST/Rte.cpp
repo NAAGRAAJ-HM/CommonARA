@@ -7,7 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "module.h"
-#include "infRte_Version.h"
+//#include "Rte_Cfg.h"
 #include "infRte_EcuM.h"
 #include "infRte_Dcm.h"
 #include "infRte_SchM.h"
@@ -15,10 +15,19 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
+#define RTE_AR_RELEASE_MAJOR_VERSION                                           4
+#define RTE_AR_RELEASE_MINOR_VERSION                                           3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
+#if(RTE_AR_RELEASE_MAJOR_VERSION != STD_AR_RELEASE_MAJOR_VERSION)
+   #error "Incompatible RTE_AR_RELEASE_MAJOR_VERSION!"
+#endif
+
+#if(RTE_AR_RELEASE_MINOR_VERSION != STD_AR_RELEASE_MINOR_VERSION)
+   #error "Incompatible RTE_AR_RELEASE_MINOR_VERSION!"
+#endif
 
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
@@ -61,6 +70,11 @@ FUNC(void, RTE_CODE) module_Rte::DeInitFunction(void){
 }
 
 FUNC(void, RTE_CODE) module_Rte::GetVersionInfo(void){
+#if(STD_ON == Rte_DevErrorDetect)
+//TBD: API parameter check
+   Det_ReportError(
+   );
+#endif
 }
 
 FUNC(void, RTE_CODE) module_Rte::MainFunction(void){
