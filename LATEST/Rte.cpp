@@ -40,6 +40,16 @@ class module_Rte:
       FUNC(void, RTE_CODE) DeInitFunction (void);
       FUNC(void, RTE_CODE) GetVersionInfo (void);
       FUNC(void, RTE_CODE) MainFunction   (void);
+
+   private:
+      CONST(Std_TypeVersionInfo, RTE_CONST) VersionInfo = {
+            0x0000
+         ,  0xFFFF
+         ,  0x01
+         ,  '0'
+         ,  '1'
+         ,  '0'
+      };
 };
 
 /******************************************************************************/
