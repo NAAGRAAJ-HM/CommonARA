@@ -7,7 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "module.h"
-//#include "Rte_Cfg.h"
+//#include "CfgRte.h"
 #include "infRte_EcuM.h"
 #include "infRte_Dcm.h"
 #include "infRte_SchM.h"
