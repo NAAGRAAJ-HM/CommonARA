@@ -6,11 +6,11 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "module.h"
-//#include "CfgRte.h"
-#include "infRte_EcuM.h"
-#include "infRte_Dcm.h"
-#include "infRte_SchM.h"
+#include "module.hpp"
+//#include "CfgRte.hpp"
+#include "infRte_EcuM.hpp"
+#include "infRte_Dcm.hpp"
+#include "infRte_SchM.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -90,7 +90,7 @@ FUNC(void, RTE_CODE) module_Rte::GetVersionInfo(void){
 FUNC(void, RTE_CODE) module_Rte::MainFunction(void){
 }
 
-#include "Rte_Unused.h"
+#include "Rte_Unused.hpp"
 
 /******************************************************************************/
 /* EOF                                                                        */
