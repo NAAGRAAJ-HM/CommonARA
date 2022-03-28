@@ -90,8 +90,6 @@ FUNC(void, RTE_CODE) module_Rte::GetVersionInfo(void){
 FUNC(void, RTE_CODE) module_Rte::MainFunction(void){
 }
 
-#include "Rte_Unused.hpp"
-
 /******************************************************************************/
 /* EOF                                                                        */
 /******************************************************************************/
