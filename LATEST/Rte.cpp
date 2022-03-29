@@ -7,7 +7,6 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "module.hpp"
-//#include "CfgRte.hpp"
 #include "infRte_EcuM.hpp"
 #include "infRte_Dcm.hpp"
 #include "infRte_SchM.hpp"
@@ -36,37 +35,40 @@ class module_Rte:
       public abstract_module
 {
    public:
+      module_Rte(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
+      }
       FUNC(void, RTE_CODE) InitFunction   (void);
       FUNC(void, RTE_CODE) DeInitFunction (void);
-      FUNC(void, RTE_CODE) GetVersionInfo (void);
       FUNC(void, RTE_CODE) MainFunction   (void);
-
-   private:
-      CONST(Std_TypeVersionInfo, RTE_CONST) VersionInfo = {
-            0x0000
-         ,  0xFFFF
-         ,  0x01
-         ,  '0'
-         ,  '1'
-         ,  '0'
-      };
 };
+
+extern VAR(module_Rte, RTE_VAR) Rte;
 
 /******************************************************************************/
 /* CONSTS                                                                     */
 /******************************************************************************/
+CONSTP2VAR(infEcuMClient, RTE_VAR, RTE_CONST) gptrinfEcuMClient_Rte = &Rte;
+CONSTP2VAR(infDcmClient,  RTE_VAR, RTE_CONST) gptrinfDcmClient_Rte  = &Rte;
+CONSTP2VAR(infSchMClient, RTE_VAR, RTE_CONST) gptrinfSchMClient_Rte = &Rte;
 
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/
+//#include "CfgRte.hpp"
 
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-VAR(module_Rte, RTE_VAR) Rte;
-CONSTP2VAR(infEcuMClient, RTE_VAR, RTE_CONST) gptrinfEcuMClient_Rte = &Rte;
-CONSTP2VAR(infDcmClient,  RTE_VAR, RTE_CONST) gptrinfDcmClient_Rte  = &Rte;
-CONSTP2VAR(infSchMClient, RTE_VAR, RTE_CONST) gptrinfSchMClient_Rte = &Rte;
+VAR(module_Rte, RTE_VAR) Rte(
+   {
+         0x0000
+      ,  0xFFFF
+      ,  0x01
+      ,  '0'
+      ,  '1'
+      ,  '0'
+   }
+);
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
@@ -77,14 +79,6 @@ FUNC(void, RTE_CODE) module_Rte::InitFunction(void){
 
 FUNC(void, RTE_CODE) module_Rte::DeInitFunction(void){
    Rte.IsInitDone = E_NOT_OK;
-}
-
-FUNC(void, RTE_CODE) module_Rte::GetVersionInfo(void){
-#if(STD_ON == Rte_DevErrorDetect)
-//TBD: API parameter check
-   Det_ReportError(
-   );
-#endif
 }
 
 FUNC(void, RTE_CODE) module_Rte::MainFunction(void){
