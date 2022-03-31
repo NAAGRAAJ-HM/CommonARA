@@ -37,10 +37,9 @@ class module_Rte:
    public:
       module_Rte(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
       }
-      FUNC(void, _CODE) InitFunction(
-         CONSTP2CONST(CfgModule_TypeAbstract, _CONFIG_DATA, _APPL_CONST) lptrCfgModule
+      FUNC(void, RTE_CODE) InitFunction(
+         CONSTP2CONST(CfgModule_TypeAbstract, RTE_CONFIG_DATA, RTE_APPL_CONST) lptrCfgModule
       );
-      FUNC(void, RTE_CODE) InitFunction   (void);
       FUNC(void, RTE_CODE) DeInitFunction (void);
       FUNC(void, RTE_CODE) MainFunction   (void);
 };
@@ -77,23 +76,39 @@ VAR(module_Rte, RTE_VAR) Rte(
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
 FUNC(void, RTE_CODE) module_Rte::InitFunction(
-   CONSTP2CONST(CfgRte_Type, CFGRTE_CONFIG_DATA, CFGRTE_APPL_CONST) lptrCfgRte
+   CONSTP2CONST(CfgModule_TypeAbstract, RTE_CONFIG_DATA, RTE_APPL_CONST) lptrCfgModule
 ){
-   if(NULL_PTR == lptrCfgRte){
+   if(E_OK == IsInitDone){
 #if(STD_ON == Rte_DevErrorDetect)
       Det_ReportError(
       );
 #endif
    }
    else{
-// check lptrCfgRte for memory faults
+      if(NULL_PTR == lptrCfgModule){
+#if(STD_ON == Rte_DevErrorDetect)
+         Det_ReportError(
+         );
+#endif
+      }
+      else{
+// check lptrCfgModule for memory faults
 // use PBcfg_Rte as back-up configuration
+      }
+      IsInitDone = E_OK;
    }
-   Rte.IsInitDone = E_OK;
 }
 
 FUNC(void, RTE_CODE) module_Rte::DeInitFunction(void){
-   Rte.IsInitDone = E_NOT_OK;
+   if(E_OK != IsInitDone){
+#if(STD_ON == Rte_DevErrorDetect)
+      Det_ReportError(
+      );
+#endif
+   }
+   else{
+      IsInitDone = E_NOT_OK;
+   }
 }
 
 FUNC(void, RTE_CODE) module_Rte::MainFunction(void){
