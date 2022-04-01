@@ -78,6 +78,7 @@ VAR(module_Rte, RTE_VAR) Rte(
 FUNC(void, RTE_CODE) module_Rte::InitFunction(
    CONSTP2CONST(CfgModule_TypeAbstract, RTE_CONFIG_DATA, RTE_APPL_CONST) lptrCfgModule
 ){
+#if(STD_ON == Rte_InitCheck)
    if(E_OK == IsInitDone){
 #if(STD_ON == Rte_DevErrorDetect)
       Det_ReportError(
@@ -85,6 +86,7 @@ FUNC(void, RTE_CODE) module_Rte::InitFunction(
 #endif
    }
    else{
+#endif
       if(NULL_PTR == lptrCfgModule){
 #if(STD_ON == Rte_DevErrorDetect)
          Det_ReportError(
@@ -96,10 +98,13 @@ FUNC(void, RTE_CODE) module_Rte::InitFunction(
 // use PBcfg_Rte as back-up configuration
       }
       IsInitDone = E_OK;
+#if(STD_ON == Rte_InitCheck)
    }
+#endif
 }
 
 FUNC(void, RTE_CODE) module_Rte::DeInitFunction(void){
+#if(STD_ON == Rte_InitCheck)
    if(E_OK != IsInitDone){
 #if(STD_ON == Rte_DevErrorDetect)
       Det_ReportError(
@@ -107,11 +112,26 @@ FUNC(void, RTE_CODE) module_Rte::DeInitFunction(void){
 #endif
    }
    else{
+#endif
       IsInitDone = E_NOT_OK;
+#if(STD_ON == Rte_InitCheck)
    }
+#endif
 }
 
 FUNC(void, RTE_CODE) module_Rte::MainFunction(void){
+#if(STD_ON == Rte_InitCheck)
+   if(E_OK != IsInitDone){
+#if(STD_ON == Rte_DevErrorDetect)
+      Det_ReportError(
+      );
+#endif
+   }
+   else{
+#endif
+#if(STD_ON == Rte_InitCheck)
+   }
+#endif
 }
 
 /******************************************************************************/
