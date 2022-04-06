@@ -14,18 +14,18 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define RTE_AR_RELEASE_MAJOR_VERSION                                           4
-#define RTE_AR_RELEASE_MINOR_VERSION                                           3
+#define RTE_AR_RELEASE_VERSION_MAJOR                                           4
+#define RTE_AR_RELEASE_VERSION_MINOR                                           3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
-#if(RTE_AR_RELEASE_MAJOR_VERSION != STD_AR_RELEASE_MAJOR_VERSION)
-   #error "Incompatible RTE_AR_RELEASE_MAJOR_VERSION!"
+#if(RTE_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
+   #error "Incompatible RTE_AR_RELEASE_VERSION_MAJOR!"
 #endif
 
-#if(RTE_AR_RELEASE_MINOR_VERSION != STD_AR_RELEASE_MINOR_VERSION)
-   #error "Incompatible RTE_AR_RELEASE_MINOR_VERSION!"
+#if(RTE_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
+   #error "Incompatible RTE_AR_RELEASE_VERSION_MINOR!"
 #endif
 
 /******************************************************************************/
@@ -63,8 +63,10 @@ CONSTP2VAR(infSchMClient, RTE_VAR, RTE_CONST) gptrinfSchMClient_Rte = &Rte;
 /******************************************************************************/
 VAR(module_Rte, RTE_VAR) Rte(
    {
-         0x0000
-      ,  0xFFFF
+         RTE_AR_RELEASE_VERSION_MAJOR
+      ,  RTE_AR_RELEASE_VERSION_MINOR
+      ,  0x00
+      ,  0xFF
       ,  0x01
       ,  '0'
       ,  '1'
