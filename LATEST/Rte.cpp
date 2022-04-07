@@ -101,8 +101,8 @@ FUNC(void, RTE_CODE) module_Rte::InitFunction(
             lptrCfg = lptrCfgModule;
          }
          else{
-// use PBcfg_CanIf as back-up configuration
-            lptrCfg = PBcfg_CanIf;
+// use PBcfgCanIf as back-up configuration
+//            lptrCfg = &PBcfgRte;
          }
       }
       IsInitDone = E_OK;
