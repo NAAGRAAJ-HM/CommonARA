@@ -84,6 +84,10 @@ FUNC(void, RTE_CODE) module_Rte::InitFunction(
    if(E_OK == IsInitDone){
 #if(STD_ON == Rte_DevErrorDetect)
       Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
       );
 #endif
    }
@@ -92,6 +96,10 @@ FUNC(void, RTE_CODE) module_Rte::InitFunction(
       if(NULL_PTR == lptrCfgModule){
 #if(STD_ON == Rte_DevErrorDetect)
          Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
          );
 #endif
       }
@@ -116,6 +124,10 @@ FUNC(void, RTE_CODE) module_Rte::DeInitFunction(void){
    if(E_OK != IsInitDone){
 #if(STD_ON == Rte_DevErrorDetect)
       Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
       );
 #endif
    }
@@ -132,6 +144,10 @@ FUNC(void, RTE_CODE) module_Rte::MainFunction(void){
    if(E_OK != IsInitDone){
 #if(STD_ON == Rte_DevErrorDetect)
       Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
       );
 #endif
    }
