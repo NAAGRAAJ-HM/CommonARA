@@ -7,6 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
+#include "Rte_core.hpp"
 #include "infRte_EcuM.hpp"
 #include "infRte_Dcm.hpp"
 #include "infRte_SchM.hpp"
