@@ -7,10 +7,9 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
+//#include "CfgRte.hpp"
 #include "Rte_core.hpp"
-#include "infRte_EcuM.hpp"
-#include "infRte_Dcm.hpp"
-#include "infRte_SchM.hpp"
+#include "infRte.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -34,6 +33,7 @@
 /******************************************************************************/
 class module_Rte:
       public abstract_module
+   ,  public class_Rte_Functionality
 {
    public:
       module_Rte(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
@@ -43,6 +43,7 @@ class module_Rte:
       );
       FUNC(void, RTE_CODE) DeInitFunction (void);
       FUNC(void, RTE_CODE) MainFunction   (void);
+      RTE_CORE_FUNCTIONALITIES
 };
 
 extern VAR(module_Rte, RTE_VAR) Rte;
@@ -57,7 +58,6 @@ CONSTP2VAR(infSchMClient, RTE_VAR, RTE_CONST) gptrinfSchMClient_Rte = &Rte;
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/
-//#include "CfgRte.hpp"
 
 /******************************************************************************/
 /* OBJECTS                                                                    */
