@@ -7,7 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
-//#include "CfgRte.hpp"
+#include "CfgRte.hpp"
 #include "Rte_core.hpp"
 #include "infRte.hpp"
 
@@ -85,13 +85,11 @@ FUNC(void, RTE_CODE) module_Rte::InitFunction(
    if(E_OK != IsInitDone){
 #endif
       if(NULL_PTR != lptrCfgModule){
-         if(STD_LOW){
-            // check lptrCfgModule for memory faults
+         if(STD_HIGH){
             lptrCfg = lptrCfgModule;
          }
          else{
-            // use PBcfgCanIf as back-up configuration
-//            lptrCfg = &PBcfgRte;
+            lptrCfg = &PBcfgRte;
          }
       }
       else{
