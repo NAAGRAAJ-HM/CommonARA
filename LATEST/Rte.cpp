@@ -35,6 +35,13 @@ class module_Rte:
       public abstract_module
    ,  public class_Rte_Functionality
 {
+   private:
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
+            Std_TypeReturn          IsInitDone{E_NOT_OK};
+      const CfgModule_TypeAbstract* lptrCfg{(CfgModule_TypeAbstract*)NULL_PTR};
+
    public:
       module_Rte(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
       }
