@@ -89,7 +89,10 @@ FUNC(void, RTE_CODE) module_Rte::InitFunction(
    CONSTP2CONST(CfgModule_TypeAbstract, RTE_CONFIG_DATA, RTE_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == Rte_InitCheck)
-   if(E_OK != IsInitDone){
+   if(
+         E_OK
+      != IsInitDone
+   ){
 #endif
       if(NULL_PTR != lptrCfgModule){
          if(STD_HIGH){
@@ -127,7 +130,10 @@ FUNC(void, RTE_CODE) module_Rte::InitFunction(
 
 FUNC(void, RTE_CODE) module_Rte::DeInitFunction(void){
 #if(STD_ON == Rte_InitCheck)
-   if(E_OK == IsInitDone){
+   if(
+         E_OK
+      == IsInitDone
+   ){
 #endif
 #if(STD_ON == Rte_InitCheck)
       IsInitDone = E_NOT_OK;
@@ -147,7 +153,10 @@ FUNC(void, RTE_CODE) module_Rte::DeInitFunction(void){
 
 FUNC(void, RTE_CODE) module_Rte::MainFunction(void){
 #if(STD_ON == Rte_InitCheck)
-   if(E_OK == IsInitDone){
+   if(
+         E_OK
+      == IsInitDone
+   ){
 #endif
 #if(STD_ON == Rte_InitCheck)
    }
