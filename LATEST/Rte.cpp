@@ -9,7 +9,7 @@
 #include "Module.hpp"
 #include "CfgRte.hpp"
 #include "Rte_core.hpp"
-#include "infRte.hpp"
+#include "infRte_Exp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -32,6 +32,7 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 class module_Rte:
+   INTERFACES_EXPORTED_RTE
       public abstract_module
    ,  public class_Rte_Functionality
 {
