@@ -32,7 +32,7 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 class module_Rte:
-   INTERFACES_EXPORTED_RTE
+      INTERFACES_EXPORTED_RTE
       public abstract_module
    ,  public class_Rte_Functionality
 {
