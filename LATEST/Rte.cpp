@@ -72,6 +72,10 @@ CONSTP2VAR(infSchMClient, RTE_VAR, RTE_CONST) gptrinfSchMClient_Rte = &Rte;
 /******************************************************************************/
 VAR(module_Rte, RTE_VAR) Rte(
    {
+#if(STD_ON == _ReSIM)
+// char strModuleName[6];
+#else
+#endif
          RTE_AR_RELEASE_VERSION_MAJOR
       ,  RTE_AR_RELEASE_VERSION_MINOR
       ,  0x00
