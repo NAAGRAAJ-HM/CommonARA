@@ -130,7 +130,9 @@ FUNC(void, RTE_CODE) module_Rte::InitFunction(
 #endif
 }
 
-FUNC(void, RTE_CODE) module_Rte::DeInitFunction(void){
+FUNC(void, RTE_CODE) module_Rte::DeInitFunction(
+   void
+){
 #if(STD_ON == Rte_InitCheck)
    if(
          E_OK
@@ -153,7 +155,9 @@ FUNC(void, RTE_CODE) module_Rte::DeInitFunction(void){
 #endif
 }
 
-FUNC(void, RTE_CODE) module_Rte::MainFunction(void){
+FUNC(void, RTE_CODE) module_Rte::MainFunction(
+   void
+){
 #if(STD_ON == Rte_InitCheck)
    if(
          E_OK
