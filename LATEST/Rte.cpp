@@ -82,12 +82,7 @@ FUNC(void, RTE_CODE) module_Rte::InitFunction(
    ){
 #endif
       if(NULL_PTR != lptrCfgModule){
-         if(STD_HIGH){
-            lptrCfg = lptrCfgModule;
-         }
-         else{
-            lptrCfg = &PBcfgRte;
-         }
+         lptrCfg = lptrCfgModule;
       }
       else{
 #if(STD_ON == Rte_DevErrorDetect)
