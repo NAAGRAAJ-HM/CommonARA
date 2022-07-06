@@ -7,9 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
-#include "CfgRte.hpp"
-#include "Rte_core.hpp"
-#include "infRte_Exp.hpp"
+#include "Rte.hpp"
 #include "infRte_Imp.hpp"
 
 /******************************************************************************/
@@ -32,26 +30,6 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-class module_Rte:
-      INTERFACES_EXPORTED_RTE
-      public abstract_module
-   ,  public class_Rte_Functionality
-{
-   private:
-/******************************************************************************/
-/* OBJECTS                                                                    */
-/******************************************************************************/
-
-   public:
-      FUNC(void, RTE_CODE) InitFunction(
-         CONSTP2CONST(CfgModule_TypeAbstract, RTE_CONFIG_DATA, RTE_APPL_CONST) lptrCfgModule
-      );
-      FUNC(void, RTE_CODE) DeInitFunction (void);
-      FUNC(void, RTE_CODE) MainFunction   (void);
-      RTE_CORE_FUNCTIONALITIES
-};
-
-extern VAR(module_Rte, RTE_VAR) Rte;
 
 /******************************************************************************/
 /* CONSTS                                                                     */
