@@ -48,7 +48,8 @@ VAR(module_Rte, RTE_VAR) Rte;
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
 FUNC(void, RTE_CODE) module_Rte::InitFunction(
-   CONSTP2CONST(CfgModule_TypeAbstract, RTE_CONFIG_DATA, RTE_APPL_CONST) lptrCfgModule
+      CONSTP2CONST(ConstModule_TypeAbstract, RTE_CONST,       RTE_APPL_CONST) lptrConstModule
+   ,  CONSTP2CONST(CfgModule_TypeAbstract,   RTE_CONFIG_DATA, RTE_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == Rte_InitCheck)
    if(
@@ -56,8 +57,12 @@ FUNC(void, RTE_CODE) module_Rte::InitFunction(
       != IsInitDone
    ){
 #endif
-      if(NULL_PTR != lptrCfgModule){
-         lptrCfg = lptrCfgModule;
+      if(
+            (NULL_PTR != lptrConstModule)
+         && (NULL_PTR != lptrCfgModule)
+      ){
+         lptrConst = lptrConstModule;
+         lptrCfg   = lptrCfgModule;
       }
       else{
 #if(STD_ON == Rte_DevErrorDetect)
