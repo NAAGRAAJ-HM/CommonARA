@@ -61,7 +61,7 @@ FUNC(void, RTE_CODE) module_Rte::InitFunction(
             (NULL_PTR != lptrConstModule)
          && (NULL_PTR != lptrCfgModule)
       ){
-         lptrConst = lptrConstModule;
+         lptrConst = (const ConstRte_Type*)lptrConstModule;
          lptrCfg   = lptrCfgModule;
       }
       else{
