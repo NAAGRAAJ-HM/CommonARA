@@ -1,16 +1,16 @@
 #pragma once
 /******************************************************************************/
-/* File   : CommonARA.hpp                                                           */
+/* File   : ProjectARA.hpp                                                           */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "ConstCommonARA.hpp"
-#include "CfgCommonARA.hpp"
-#include "CommonARA_core.hpp"
-#include "infCommonARA_Exp.hpp"
+#include "ConstProjectARA.hpp"
+#include "CfgProjectARA.hpp"
+#include "ProjectARA_core.hpp"
+#include "infProjectARA_Exp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -23,16 +23,16 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-class module_CommonARA:
+class module_ProjectARA:
       INTERFACES_EXPORTED_RTE
       public abstract_module
-   ,  public class_CommonARA_Functionality
+   ,  public class_ProjectARA_Functionality
 {
    private:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-      const ConstCommonARA_Type* lptrConst = (ConstCommonARA_Type*)NULL_PTR;
+      const ConstProjectARA_Type* lptrConst = (ConstProjectARA_Type*)NULL_PTR;
 
    public:
 /******************************************************************************/
@@ -58,7 +58,7 @@ class module_CommonARA:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-extern VAR(module_CommonARA, RTE_VAR) CommonARA;
+extern VAR(module_ProjectARA, RTE_VAR) ProjectARA;
 
 /******************************************************************************/
 /* EOF                                                                        */

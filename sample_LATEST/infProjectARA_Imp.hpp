@@ -1,6 +1,6 @@
 #pragma once
 /******************************************************************************/
-/* File   : infCommonARA_Imp.hpp                                                    */
+/* File   : infProjectARA_Imp.hpp                                                    */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 

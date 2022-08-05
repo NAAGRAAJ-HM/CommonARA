@@ -1,5 +1,5 @@
 /******************************************************************************/
-/* File   : CommonARA.cpp                                                           */
+/* File   : ProjectARA.cpp                                                           */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
@@ -7,8 +7,8 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
-#include "CommonARA.hpp"
-#include "infCommonARA_Imp.hpp"
+#include "ProjectARA.hpp"
+#include "infProjectARA_Imp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -42,16 +42,16 @@
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-VAR(module_CommonARA, RTE_VAR) CommonARA;
+VAR(module_ProjectARA, RTE_VAR) ProjectARA;
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-FUNC(void, RTE_CODE) module_CommonARA::InitFunction(
+FUNC(void, RTE_CODE) module_ProjectARA::InitFunction(
       CONSTP2CONST(ConstModule_TypeAbstract, RTE_CONST,       RTE_APPL_CONST) lptrConstModule
    ,  CONSTP2CONST(CfgModule_TypeAbstract,   RTE_CONFIG_DATA, RTE_APPL_CONST) lptrCfgModule
 ){
-#if(STD_ON == CommonARA_InitCheck)
+#if(STD_ON == ProjectARA_InitCheck)
    if(
          E_OK
       != IsInitDone
@@ -61,11 +61,11 @@ FUNC(void, RTE_CODE) module_CommonARA::InitFunction(
             (NULL_PTR != lptrConstModule)
          && (NULL_PTR != lptrCfgModule)
       ){
-         lptrConst = (const ConstCommonARA_Type*)lptrConstModule;
+         lptrConst = (const ConstProjectARA_Type*)lptrConstModule;
          lptrCfg   = lptrCfgModule;
       }
       else{
-#if(STD_ON == CommonARA_DevErrorDetect)
+#if(STD_ON == ProjectARA_DevErrorDetect)
          ServiceDet_ReportError(
                0 //TBD: IdModule
             ,  0 //TBD: IdInstance
@@ -74,11 +74,11 @@ FUNC(void, RTE_CODE) module_CommonARA::InitFunction(
          );
 #endif
       }
-#if(STD_ON == CommonARA_InitCheck)
+#if(STD_ON == ProjectARA_InitCheck)
       IsInitDone = E_OK;
    }
    else{
-#if(STD_ON == CommonARA_DevErrorDetect)
+#if(STD_ON == ProjectARA_DevErrorDetect)
       ServiceDet_ReportError(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
@@ -90,20 +90,20 @@ FUNC(void, RTE_CODE) module_CommonARA::InitFunction(
 #endif
 }
 
-FUNC(void, RTE_CODE) module_CommonARA::DeInitFunction(
+FUNC(void, RTE_CODE) module_ProjectARA::DeInitFunction(
    void
 ){
-#if(STD_ON == CommonARA_InitCheck)
+#if(STD_ON == ProjectARA_InitCheck)
    if(
          E_OK
       == IsInitDone
    ){
 #endif
-#if(STD_ON == CommonARA_InitCheck)
+#if(STD_ON == ProjectARA_InitCheck)
       IsInitDone = E_NOT_OK;
    }
    else{
-#if(STD_ON == CommonARA_DevErrorDetect)
+#if(STD_ON == ProjectARA_DevErrorDetect)
       ServiceDet_ReportError(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
@@ -115,19 +115,19 @@ FUNC(void, RTE_CODE) module_CommonARA::DeInitFunction(
 #endif
 }
 
-FUNC(void, RTE_CODE) module_CommonARA::MainFunction(
+FUNC(void, RTE_CODE) module_ProjectARA::MainFunction(
    void
 ){
-#if(STD_ON == CommonARA_InitCheck)
+#if(STD_ON == ProjectARA_InitCheck)
    if(
          E_OK
       == IsInitDone
    ){
 #endif
-#if(STD_ON == CommonARA_InitCheck)
+#if(STD_ON == ProjectARA_InitCheck)
    }
    else{
-#if(STD_ON == CommonARA_DevErrorDetect)
+#if(STD_ON == ProjectARA_DevErrorDetect)
       ServiceDet_ReportError(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
