@@ -1,20 +1,34 @@
 #pragma once
 /******************************************************************************/
-/* File   : ProjectARA.hpp                                                           */
+/* File   : Template.hpp                                                      */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "ConstProjectARA.hpp"
-#include "CfgProjectARA.hpp"
-#include "ProjectARA_core.hpp"
-#include "infProjectARA_Exp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
+#define CMSIS_device_header                                          "tle987x.h"
+#define RTE_DEVICE_BF_STEP
+#define CONFIGWIZARD                                                           2
+#define RTE_DEVICE_SDK_ADC1
+#define RTE_DEVICE_SDK_ADC2
+#define RTE_DEVICE_SDK_BDRV
+#define RTE_DEVICE_SDK_BROM
+#define RTE_DEVICE_SDK_CCU6
+#define RTE_DEVICE_SDK_CSA
+#define RTE_DEVICE_SDK_GPT12E
+#define RTE_DEVICE_SDK_INT
+#define RTE_DEVICE_SDK_ISR
+#define RTE_DEVICE_SDK_LIN
+#define RTE_DEVICE_SDK_MON
+#define RTE_DEVICE_SDK_PMU
+#define RTE_DEVICE_SDK_PORT
+#define RTE_DEVICE_SDK_SCU
+#define RTE_DEVICE_SDK_WDT1
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -23,29 +37,6 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-class module_ProjectARA:
-      INTERFACES_EXPORTED_RTE
-      public abstract_module
-   ,  public class_ProjectARA_Functionality
-{
-   private:
-/******************************************************************************/
-/* OBJECTS                                                                    */
-/******************************************************************************/
-      const ConstProjectARA_Type* lptrConst = (ConstProjectARA_Type*)NULL_PTR;
-
-   public:
-/******************************************************************************/
-/* FUNCTIONS                                                                  */
-/******************************************************************************/
-      FUNC(void, RTE_CODE) InitFunction(
-            CONSTP2CONST(ConstModule_TypeAbstract, RTE_CONST,       RTE_APPL_CONST) lptrConstModule
-         ,  CONSTP2CONST(CfgModule_TypeAbstract,   RTE_CONFIG_DATA, RTE_APPL_CONST) lptrCfgModule
-      );
-      FUNC(void, RTE_CODE) DeInitFunction (void);
-      FUNC(void, RTE_CODE) MainFunction   (void);
-      RTE_CORE_FUNCTIONALITIES
-};
 
 /******************************************************************************/
 /* CONSTS                                                                     */
@@ -58,7 +49,10 @@ class module_ProjectARA:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-extern VAR(module_ProjectARA, RTE_VAR) ProjectARA;
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
 
 /******************************************************************************/
 /* EOF                                                                        */
