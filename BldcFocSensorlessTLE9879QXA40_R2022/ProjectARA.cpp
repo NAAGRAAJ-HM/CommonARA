@@ -43,6 +43,7 @@
 /* OBJECTS                                                                    */
 /******************************************************************************/
 VAR(module_ProjectARA, RTE_VAR) ProjectARA;
+type_Rte_Buffer Rte_Buffer;
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
@@ -74,6 +75,8 @@ FUNC(void, RTE_CODE) module_ProjectARA::InitFunction(
          );
 #endif
       }
+      Rte_Buffer.PhaseCurr.A = 0;
+      Rte_Buffer.PhaseCurr.B = 0;
 #if(STD_ON == ProjectARA_InitCheck)
       IsInitDone = E_OK;
    }
