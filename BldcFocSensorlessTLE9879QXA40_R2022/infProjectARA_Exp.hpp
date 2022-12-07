@@ -26,10 +26,6 @@ typedef struct{ //TBD: move to destination module specific Rte interface
    sint16 B;
 }TPhaseCurr;
 
-typedef struct{ //TBD: move to destination module specific Rte interface
-   TPhaseCurr PhaseCurr;
-}type_Rte_Buffer;
-
 /******************************************************************************/
 /* CONSTS                                                                     */
 /******************************************************************************/
@@ -41,7 +37,6 @@ typedef struct{ //TBD: move to destination module specific Rte interface
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-extern type_Rte_Buffer Rte_Buffer; //TBD: move to destination module specific Rte interface
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */

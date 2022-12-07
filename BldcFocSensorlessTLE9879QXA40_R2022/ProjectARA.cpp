@@ -30,6 +30,10 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
+typedef struct{ //TBD: move to destination module specific Rte interface
+   sint16     s16AdcResult[3u];
+   TPhaseCurr PhaseCurr;
+}type_Rte_Buffer;
 
 /******************************************************************************/
 /* CONSTS                                                                     */
@@ -43,7 +47,7 @@
 /* OBJECTS                                                                    */
 /******************************************************************************/
 VAR(module_ProjectARA, RTE_VAR) ProjectARA;
-type_Rte_Buffer Rte_Buffer;
+static type_Rte_Buffer Rte_Buffer;
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
@@ -141,6 +145,39 @@ FUNC(void, RTE_CODE) module_ProjectARA::MainFunction(
    }
 #endif
 }
+
+#include <cstring> //TBD: Re-arrange headers
+void RteWrite_PhaseCurr(
+   TPhaseCurr* lptrInput
+){
+   memcpy(
+         &Rte_Buffer.PhaseCurr
+      ,  lptrInput
+      ,  sizeof(Rte_Buffer.PhaseCurr)
+   );
+}
+
+void RteWrite_AdcResult(
+   sint16* lptrInput
+){
+   memcpy(
+         &Rte_Buffer.s16AdcResult[0]
+      ,  lptrInput
+      ,  sizeof(Rte_Buffer.s16AdcResult)
+   );
+}
+
+void RteRead_AdcResult(
+   sint16* lptrOutput
+){
+   memcpy(
+         lptrOutput
+      ,  &Rte_Buffer.s16AdcResult[0]
+      ,  sizeof(Rte_Buffer.s16AdcResult)
+   );
+}
+
+uint32 RteRead_Adc2(void){return Rte_Buffer.s16AdcResult[2u];}
 
 /******************************************************************************/
 /* EOF                                                                        */
