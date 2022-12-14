@@ -157,6 +157,16 @@ void RteWrite_PhaseCurr(
    );
 }
 
+void RteRead_PhaseCurr(
+   TPhaseCurr* lptrOutput
+){
+   memcpy(
+         lptrOutput
+      ,  &Rte_Buffer.PhaseCurr
+      ,  sizeof(Rte_Buffer.PhaseCurr)
+   );
+}
+
 void RteWrite_AdcResult(
    sint16* lptrInput
 ){
