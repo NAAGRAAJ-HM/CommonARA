@@ -34,6 +34,7 @@ typedef struct{ //TBD: move to destination module specific Rte interface
    sint16     s16AdcResult[3u];
    TPhaseCurr PhaseCurr;
    uint16     u16SpeedReference;
+   uint16     u16DcLinkVoltage;
 }type_Rte_Buffer;
 
 /******************************************************************************/
@@ -191,9 +192,7 @@ void RteRead_AdcResult(
 uint32 RteRead_Adc2(void){return Rte_Buffer.s16AdcResult[2u];}
 
 #include "adc1.hpp"
-void RteRead_SpeedReference(
-   uint16* lptrOutput
-){
+uint16 RteRead_SpeedReference(void){
 /******************************************************************************/
 //TBD: seperate from RteRead
 /******************************************************************************/
@@ -212,7 +211,13 @@ void RteRead_SpeedReference(
 //END
 /******************************************************************************/
 
-   *lptrOutput = Rte_Buffer.u16SpeedReference;
+   return Rte_Buffer.u16SpeedReference;
+}
+
+uint16 RteRead_u16DcLinkVoltage(void){
+   Rte_Buffer.u16DcLinkVoltage = ADC1_GetRES_OUT6(); //TBD: Scheduling and move to RteWrite
+   Rte_Buffer.u16DcLinkVoltage = 1; //TBD: Remove after complete implementation
+   return Rte_Buffer.u16DcLinkVoltage;
 }
 
 /******************************************************************************/
