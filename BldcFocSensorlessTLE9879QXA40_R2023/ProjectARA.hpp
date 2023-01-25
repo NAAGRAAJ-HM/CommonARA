@@ -7,7 +7,7 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "ConstProjectARA.hpp"
+#include "infProjectARA_ServiceNvM_Types.hpp"
 #include "CfgProjectARA.hpp"
 #include "ProjectARA_core.hpp"
 #include "infProjectARA_Exp.hpp"
