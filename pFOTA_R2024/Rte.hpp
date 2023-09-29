@@ -1,5 +1,3 @@
-
-
 #ifndef RTE_H
 #define RTE_H
 

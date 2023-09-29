@@ -1,5 +1,3 @@
-
-
 #ifndef RTE_ECUM_TYPE_H
 #define RTE_ECUM_TYPE_H
 
