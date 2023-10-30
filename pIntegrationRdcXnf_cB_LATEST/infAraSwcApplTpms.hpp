@@ -37,11 +37,7 @@
 #define Default_infAraSwcApplTpms_PercentageThresholdNotificationSupParkRaw             0 /* %ge */
 #define Default_infAraSwcApplTpms_PercentageThresholdWarnSupParkCompensatedTemperature  0 /* %ge */
 #define Default_infAraSwcApplTpms_PercentageThresholdWarnSupParkRaw                     0 /* %ge */
-#define Default_infAraSwcApplTpms_TemperatureAmbientPrewarn_Disabled                 0xFE /* K */
-#define Default_infAraSwcApplTpms_SpeedThresholdCcm                                     0 /* KmpH */
-#define Default_infAraSwcApplTpms_SpeedHysterisisCcm                                    0 /* KmpH */
-#define Default_infAraSwcApplTpms_Altitude                                            0.0 /* m */
-#define Default_infAraSwcApplTpms_ErrorAltitude                                       0.0 /* m */
+#define Default_infAraSwcApplTpms_PercentageLearnPickup                                 0 /* %ge */
 #define Default_infAraSwcApplTpms_PressureAtmospheric                                1013 /* mbar (hPa) */
 #define Default_infAraSwcApplTpms_PressureDeltaPLR                                      0 /* mbar (hPa) */
 #define Default_infAraSwcApplTpms_Pressure_dp_to_i_min                                  0 /* mbar (hPa) */
@@ -52,126 +48,186 @@
 #define Default_infAraSwcApplTpms_PressureRangeMaxInit                                  0 /* mbar (hPa) */
 #define Default_infAraSwcApplTpms_PressureOffsetTolerance                               0 /* mbar (hPa) */
 #define Default_infAraSwcApplTpms_PressureOffsetToleranceRaw                            0 /* mbar (hPa) */
-#define Default_infAraSwcApplTpms_PressureOffsetCcmAxleFront                            0 /* mbar (hPa) */
-#define Default_infAraSwcApplTpms_PressureOffsetCcmAxleRear                             0 /* mbar (hPa) */
 #define Default_infAraSwcApplTpms_PressureThresholdLossMobilitySupPark                  0 /* mbar (hPa) */
 #define Default_infAraSwcApplTpms_PressureTolSupParkRaw                                 0 /* mbar (hPa) */
 #define Default_infAraSwcApplTpms_PressureTolSupParkCompensatedTemperature              0 /* mbar (hPa) */
 #define Default_infAraSwcApplTpms_PressureInitAxleFront                                 0 /* mbar (hPa) */
 #define Default_infAraSwcApplTpms_PressureInitAxleRear                                  0 /* mbar (hPa) */
+#define Default_infAraSwcApplTpms_OffsetPressureSpeedCcmAxleFront                       0 /* mbar (hPa) */
+#define Default_infAraSwcApplTpms_OffsetPressureSpeedCcmAxleRear                        0 /* mbar (hPa) */
+#define Default_infAraSwcApplTpms_TemperatureAmbientPrewarn_Disabled                 0xFE /* K */
+#define Default_infAraSwcApplTpms_TemperatureTrefThresholdDown                          0 /* DegC */
+#define Default_infAraSwcApplTpms_TemperatureTrefThresholdUp                            0 /* DegC */
+#define Default_infAraSwcApplTpms_TemperatureAir                                       20 /* DegC */
+#define Default_infAraSwcApplTpms_SpeedThresholdCcm                                     0 /* KmpH */
+#define Default_infAraSwcApplTpms_SpeedHysterisisCcm                                    0 /* KmpH */
+#define Default_infAraSwcApplTpms_DateDisplayYear                                       0 /* year */
+#define Default_infAraSwcApplTpms_DateDisplayMonth                                      0 /* month */
+#define Default_infAraSwcApplTpms_DateTrefHoldOffDown                                   0 /* day */
+#define Default_infAraSwcApplTpms_DateTrefHoldOffUp                                     0 /* day */
+#define Default_infAraSwcApplTpms_DateDisplayDay                                        0 /* day */
+#define Default_infAraSwcApplTpms_TimeTrefConstFiltDown                                 0 /* hour */
+#define Default_infAraSwcApplTpms_TimeTrefConstFiltUp                                   0 /* hour */
+#define Default_infAraSwcApplTpms_TimeDisplayHour                                       0 /* hour */
 #define Default_infAraSwcApplTpms_TimeHoldOffCooling                                    0 /* min */
 #define Default_infAraSwcApplTpms_TimeHoldOffLong_Disabled                           0x13 /* min */
 #define Default_infAraSwcApplTpms_TimeCorrelationMax                                    0 /* min */
 #define Default_infAraSwcApplTpms_TimeHoldOffShort_Disabled_US_China                 0x08 /* min */
 #define Default_infAraSwcApplTpms_TimeoutHoldOffPrewarn                                 0 /* min */
 #define Default_infAraSwcApplTpms_TimeMinCoolTyreX                                      0 /* min */
+#define Default_infAraSwcApplTpms_TimeDisplayMin                                        0 /* min */
 #define Default_infAraSwcApplTpms_TimeoutDispCfg                                        0 /* s */
 #define Default_infAraSwcApplTpms_TimeHoldOffCcm                                        0 /* s */
+#define Default_infAraSwcApplTpms_TimeDisplaySec                                        0 /* s */
+#define Default_infAraSwcApplTpms_Altitude                                            0.0 /* m */
+#define Default_infAraSwcApplTpms_ErrorAltitude                                       0.0 /* m */
 
-#define CompuMethod_Distance_m_f32(p)                            ((float32) (p))
-#define CompuMethod_Percentage_u8(p)                             ((uint8)   (p))
-#define CompuMethod_Pressure_mbar_u16(p)                         ((uint16)  (p))
-#define CompuMethod_Speed_KmpH_u16(p)                            ((uint16)  (p))
-#define CompuMethod_Speed_KmpH_u8(p)                             ((uint8)   (p))
-#define CompuMethod_Temperature_K_u16(p)                         ((uint16)  (p))
-#define CompuMethod_Time_min_u8(p)                               ((uint8)   (p))
-#define CompuMethod_Time_s_u8(p)                                 ((uint8)   (p))
+#define Default_infAraSwcApplTpms_stParameterCodingTpms {                                                                   \
+      infAraSwcApplTpms_eEnableResetDisplay_Disabled                                                                        \
+   ,  infAraSwcApplTpms_eEnableRcpEco_Disabled                                                                              \
+   ,  infAraSwcApplTpms_eEnableRidErfs_Disabled_RFS_and_RID                                                                 \
+   ,  infAraSwcApplTpms_eEnableDeflateFast_Disabled                                                                         \
+   ,  infAraSwcApplTpms_eEnableThresholdMax_Disabled                                                                        \
+   ,  infAraSwcApplTpms_eEnableWarningsLegisPromote_Disabled                                                                \
+   ,  infAraSwcApplTpms_eEnablePrewarn_Disabled                                                                             \
+   ,  infAraSwcApplTpms_eEnablePrewarnIgnition_Disabled                                                                     \
+   ,  infAraSwcApplTpms_eEnableResetPlausi_Disabled                                                                         \
+   ,  infAraSwcApplTpms_eEnableSensorForegin_Disabled                                                                       \
+   ,  infAraSwcApplTpms_eEnableSyncLocationSensor_Disabled                                                                  \
+   ,  infAraSwcApplTpms_eEnableInitStat_Disabled                                                                            \
+   ,  infAraSwcApplTpms_eEnablePrewarnNotification_Disabled                                                                 \
+   ,  infAraSwcApplTpms_eEnableTRefAdjustmentSeasonal_Disabled                                                              \
+   ,  infAraSwcApplTpms_eEnableMonitoringParkenFbd_Disabled                                                                 \
+   ,  infAraSwcApplTpms_eEnableSpeedCcm_Disabled                                                                            \
+   ,  infAraSwcApplTpms_eStateTpms_INVALID                                                                                  \
+   ,  infAraSwcApplTpms_eConditionLoadDefault_INVALID                                                                       \
+   ,  infAraSwcApplTpms_eMenuSelectDefault_Manual_RFS                                                                       \
+   ,  infAraSwcApplTpms_eSourcePlacardErfs_INVALID                                                                          \
+   ,  infAraSwcApplTpms_eNumberDetectPrewarn_TiresTwoOrMore                                                                 \
+   ,  infAraSwcApplTpms_eMarketLegislation_Invalid                                                                          \
+   ,  infAraSwcApplTpms_eCfgSupParkExt_INVALID                                                                              \
+   ,  infAraSwcApplTpms_eStrategyLearnTimeout_B                                                                             \
+   ,  infAraSwcApplTpms_eBandMarginCoinPal_INVALID                                                                          \
+   ,  infAraSwcApplTpms_eSwitchDebug_Disabled                                                                               \
+   ,  infAraSwcApplTpms_eSwitchDebug_Disabled                                                                               \
+   ,  infAraSwcApplTpms_eSwitchDebug_Disabled                                                                               \
+   ,  infAraSwcApplTpms_eSwitchDebug_Disabled                                                                               \
+   ,  CompuMethod_Percentage_u8           (Default_infAraSwcApplTpms_PercentageShiftTRef)                                   \
+   ,  CompuMethod_Percentage_u8           (Default_infAraSwcApplTpms_PercentageThresholdHoldOffShortCompensatedTemperature) \
+   ,  CompuMethod_Percentage_u8           (Default_infAraSwcApplTpms_PercentageThresholdRawNoHoldOff)                       \
+   ,  CompuMethod_Percentage_u8           (Default_infAraSwcApplTpms_PercentageThresholdPreCompensatedTemperature)          \
+   ,  CompuMethod_Percentage_u8           (Default_infAraSwcApplTpms_PercentageThresholdPreRaw)                             \
+   ,  CompuMethod_Percentage_u8           (Default_infAraSwcApplTpms_PercentageThresholdNotificationSupPark)                \
+   ,  CompuMethod_Percentage_u8           (Default_infAraSwcApplTpms_PercentageThresholdNotificationSupParkRaw)             \
+   ,  CompuMethod_Percentage_u8           (Default_infAraSwcApplTpms_PercentageThresholdWarnSupParkCompensatedTemperature)  \
+   ,  CompuMethod_Percentage_u8           (Default_infAraSwcApplTpms_PercentageThresholdWarnSupParkRaw)                     \
+   ,  CompuMethod_Percentage_u8           (Default_infAraSwcApplTpms_PercentageLearnPickup)                                 \
+   ,  CompuMethod_Pressure_mbar_u16       (Default_infAraSwcApplTpms_PressureDeltaPLR)                                      \
+   ,  CompuMethod_Pressure_mbar_u16       (Default_infAraSwcApplTpms_Pressure_dp_to_i_min)                                  \
+   ,  CompuMethod_Pressure_mbar_u16       (Default_infAraSwcApplTpms_PressureRcpCorrectedMax)                               \
+   ,  CompuMethod_Pressure_mbar_u16       (Default_infAraSwcApplTpms_PressureRcpMinAxleFront)                               \
+   ,  CompuMethod_Pressure_mbar_u16       (Default_infAraSwcApplTpms_PressureRcpMinAxleRear)                                \
+   ,  CompuMethod_Pressure_mbar_u16       (Default_infAraSwcApplTpms_PressureThresholdPanne)                                \
+   ,  CompuMethod_Pressure_mbar_u16       (Default_infAraSwcApplTpms_PressureRangeMaxInit)                                  \
+   ,  CompuMethod_Pressure_mbar_u16       (Default_infAraSwcApplTpms_PressureOffsetTolerance)                               \
+   ,  CompuMethod_Pressure_mbar_u16       (Default_infAraSwcApplTpms_PressureOffsetToleranceRaw)                            \
+   ,  CompuMethod_Pressure_mbar_u16       (Default_infAraSwcApplTpms_PressureThresholdLossMobilitySupPark)                  \
+   ,  CompuMethod_Pressure_mbar_u16       (Default_infAraSwcApplTpms_PressureTolSupParkRaw)                                 \
+   ,  CompuMethod_Pressure_mbar_u16       (Default_infAraSwcApplTpms_PressureTolSupParkCompensatedTemperature)              \
+   ,  CompuMethod_Pressure_mbar_u16       (Default_infAraSwcApplTpms_PressureInitAxleFront)                                 \
+   ,  CompuMethod_Pressure_mbar_u16       (Default_infAraSwcApplTpms_PressureInitAxleRear)                                  \
+   ,  CompuMethod_OffsetPressure_mbar_s16 (Default_infAraSwcApplTpms_OffsetPressureSpeedCcmAxleFront)                       \
+   ,  CompuMethod_OffsetPressure_mbar_s16 (Default_infAraSwcApplTpms_OffsetPressureSpeedCcmAxleRear)                        \
+   ,  CompuMethod_Speed_KmpH_u16          (Default_infAraSwcApplTpms_SpeedThresholdCcm)                                     \
+   ,  CompuMethod_Speed_KmpH_u8           (Default_infAraSwcApplTpms_SpeedHysterisisCcm)                                    \
+   ,  CompuMethod_Temperature_K_u16       (Default_infAraSwcApplTpms_TemperatureAmbientPrewarn_Disabled)                    \
+   ,  CompuMethod_Temperature_DegC_u8     (Default_infAraSwcApplTpms_TemperatureTrefThresholdDown)                          \
+   ,  CompuMethod_Temperature_DegC_u8     (Default_infAraSwcApplTpms_TemperatureTrefThresholdUp)                            \
+   ,  CompuMethod_Date_day_u8             (Default_infAraSwcApplTpms_DateTrefHoldOffDown)                                   \
+   ,  CompuMethod_Date_day_u8             (Default_infAraSwcApplTpms_DateTrefHoldOffUp)                                     \
+   ,  CompuMethod_Time_hour_u8            (Default_infAraSwcApplTpms_TimeTrefConstFiltDown)                                 \
+   ,  CompuMethod_Time_hour_u8            (Default_infAraSwcApplTpms_TimeTrefConstFiltUp)                                   \
+   ,  CompuMethod_Time_min_u8             (Default_infAraSwcApplTpms_TimeHoldOffCooling)                                    \
+   ,  CompuMethod_Time_min_u8             (Default_infAraSwcApplTpms_TimeHoldOffLong_Disabled)                              \
+   ,  CompuMethod_Time_min_u8             (Default_infAraSwcApplTpms_TimeCorrelationMax)                                    \
+   ,  CompuMethod_Time_min_u8             (Default_infAraSwcApplTpms_TimeHoldOffShort_Disabled_US_China)                    \
+   ,  CompuMethod_Time_min_u8             (Default_infAraSwcApplTpms_TimeoutHoldOffPrewarn)                                 \
+   ,  CompuMethod_Time_min_u8             (Default_infAraSwcApplTpms_TimeMinCoolTyreX)                                      \
+   ,  CompuMethod_Time_s_u8               (Default_infAraSwcApplTpms_TimeoutDispCfg)                                        \
+   ,  CompuMethod_Time_s_u8               (Default_infAraSwcApplTpms_TimeHoldOffCcm)                                        \
+}
 
-#define Default_infAraSwcApplTpms_stReceivers {                                                                                                        \
-      {                                                                                                                                                \
-            infAraSwcApplTpms_eEnableResetDisplay_Disabled                                                                                             \
-         ,  infAraSwcApplTpms_eEnableRcpEco_Disabled                                                                                                   \
-         ,  infAraSwcApplTpms_eEnableRidErfs_Disabled_RFS_and_RID                                                                                      \
-         ,  infAraSwcApplTpms_eEnableDeflateFast_Disabled                                                                                              \
-         ,  infAraSwcApplTpms_eEnableThresholdMax_Disabled                                                                                             \
-         ,  infAraSwcApplTpms_eEnableWarningsLegisPromote_Disabled                                                                                     \
-         ,  infAraSwcApplTpms_eEnablePrewarn_Disabled                                                                                                  \
-         ,  infAraSwcApplTpms_eEnablePrewarnIgnition_Disabled                                                                                          \
-         ,  infAraSwcApplTpms_eEnableResetPlausi_Disabled                                                                                              \
-         ,  infAraSwcApplTpms_eEnableSensorForegin_Disabled                                                                                            \
-         ,  infAraSwcApplTpms_eEnableSyncLocationSensor_Disabled                                                                                       \
-         ,  infAraSwcApplTpms_eEnableInitStat_Disabled                                                                                                 \
-         ,  infAraSwcApplTpms_eEnablePrewarnNotification_Disabled                                                                                      \
-         ,  infAraSwcApplTpms_eEnableTRefAdjustmentSeasonal_Disabled                                                                                   \
-         ,  infAraSwcApplTpms_eEnableMonitoringParkenFbd_Disabled                                                                                      \
-         ,  infAraSwcApplTpms_eEnableSpeedCcm_Disabled                                                                                                 \
-         ,  infAraSwcApplTpms_eStateTpms_INVALID                                                                                                       \
-         ,  infAraSwcApplTpms_eConditionLoadDefault_INVALID                                                                                            \
-         ,  infAraSwcApplTpms_eMenuSelectDefault_Manual_RFS                                                                                            \
-         ,  infAraSwcApplTpms_eSourcePlacardErfs_INVALID                                                                                               \
-         ,  infAraSwcApplTpms_eNumberDetectPrewarn_TiresTwoOrMore                                                                                      \
-         ,  infAraSwcApplTpms_eMarketLegislation_Invalid                                                                                               \
-         ,  infAraSwcApplTpms_eCfgSupParkExt_INVALID                                                                                                   \
-         ,  CompuMethod_Percentage_u8                                (Default_infAraSwcApplTpms_PercentageShiftTRef)                                   \
-         ,  CompuMethod_Percentage_u8                                (Default_infAraSwcApplTpms_PercentageThresholdHoldOffShortCompensatedTemperature) \
-         ,  CompuMethod_Percentage_u8                                (Default_infAraSwcApplTpms_PercentageThresholdRawNoHoldOff)                       \
-         ,  CompuMethod_Percentage_u8                                (Default_infAraSwcApplTpms_PercentageThresholdPreCompensatedTemperature)          \
-         ,  CompuMethod_Percentage_u8                                (Default_infAraSwcApplTpms_PercentageThresholdPreRaw)                             \
-         ,  CompuMethod_Percentage_u8                                (Default_infAraSwcApplTpms_PercentageThresholdNotificationSupPark)                \
-         ,  CompuMethod_Percentage_u8                                (Default_infAraSwcApplTpms_PercentageThresholdNotificationSupParkRaw)             \
-         ,  CompuMethod_Percentage_u8                                (Default_infAraSwcApplTpms_PercentageThresholdWarnSupParkCompensatedTemperature)  \
-         ,  CompuMethod_Percentage_u8                                (Default_infAraSwcApplTpms_PercentageThresholdWarnSupParkRaw)                     \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureDeltaPLR)                                      \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_Pressure_dp_to_i_min)                                  \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureRcpCorrectedMax)                               \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureRcpMinAxleFront)                               \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureRcpMinAxleRear)                                \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureThresholdPanne)                                \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureRangeMaxInit)                                  \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureOffsetTolerance)                               \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureOffsetToleranceRaw)                            \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureOffsetCcmAxleFront)                            \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureOffsetCcmAxleRear)                             \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureThresholdLossMobilitySupPark)                  \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureTolSupParkRaw)                                 \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureTolSupParkCompensatedTemperature)              \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureInitAxleFront)                                 \
-         ,  CompuMethod_Pressure_mbar_u16                            (Default_infAraSwcApplTpms_PressureInitAxleRear)                                  \
-         ,  CompuMethod_Speed_KmpH_u16                               (Default_infAraSwcApplTpms_SpeedThresholdCcm)                                     \
-         ,  CompuMethod_Speed_KmpH_u8                                (Default_infAraSwcApplTpms_SpeedHysterisisCcm)                                    \
-         ,  CompuMethod_Temperature_K_u16                            (Default_infAraSwcApplTpms_TemperatureAmbientPrewarn_Disabled)                    \
-         ,  CompuMethod_Time_min_u8                                  (Default_infAraSwcApplTpms_TimeHoldOffCooling)                                    \
-         ,  CompuMethod_Time_min_u8                                  (Default_infAraSwcApplTpms_TimeHoldOffLong_Disabled)                              \
-         ,  CompuMethod_Time_min_u8                                  (Default_infAraSwcApplTpms_TimeCorrelationMax)                                    \
-         ,  CompuMethod_Time_min_u8                                  (Default_infAraSwcApplTpms_TimeHoldOffShort_Disabled_US_China)                    \
-         ,  CompuMethod_Time_min_u8                                  (Default_infAraSwcApplTpms_TimeoutHoldOffPrewarn)                                 \
-         ,  CompuMethod_Time_min_u8                                  (Default_infAraSwcApplTpms_TimeMinCoolTyreX)                                      \
-         ,  CompuMethod_Time_s_u8                                    (Default_infAraSwcApplTpms_TimeoutDispCfg)                                        \
-         ,  CompuMethod_Time_s_u8                                    (Default_infAraSwcApplTpms_TimeHoldOffCcm)                                        \
-      }                                                                                                                                                \
-   ,  CompuMethod_Distance_m_f32                                     (Default_infAraSwcApplTpms_Altitude)                                              \
-   ,  CompuMethod_Distance_m_f32                                     (Default_infAraSwcApplTpms_ErrorAltitude)                                         \
-   ,  CompuMethod_Pressure_mbar_u16                                  (Default_infAraSwcApplTpms_PressureAtmospheric)                                   \
-   ,  0, 0, {0}, 0, 0                                                                                                                                  \
-   ,  0, 0, 0, 0, 0, 0, {0}                                                                                                                            \
-   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                                                                         \
-   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                                                                         \
-   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                                                                         \
-   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                                                                         \
-   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                                                                         \
-   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                                                                         \
-   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                                                                         \
-   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                                                                         \
-   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                                                                         \
+#define Default_infAraSwcApplTpms_stReceivers {                                                      \
+      Default_infAraSwcApplTpms_stParameterCodingTpms                                                \
+   ,  {{0}}                                                                                          \
+   ,  {                                                                                              \
+            CompuMethod_Time_hour_u8                 (Default_infAraSwcApplTpms_TimeDisplayHour)     \
+         ,  CompuMethod_Time_min_u8                  (Default_infAraSwcApplTpms_TimeDisplayMin)      \
+         ,  CompuMethod_Time_s_u8                    (Default_infAraSwcApplTpms_TimeDisplaySec)      \
+         ,  CompuMethod_Date_day_u8                  (Default_infAraSwcApplTpms_DateDisplayDay)      \
+         ,  CompuMethod_Date_month_u8                (Default_infAraSwcApplTpms_DateDisplayMonth)    \
+         ,  CompuMethod_Date_year_u16                (Default_infAraSwcApplTpms_DateDisplayYear)     \
+      }                                                                                              \
+   ,  CompuMethod_Distance_m_f32                     (Default_infAraSwcApplTpms_Altitude)            \
+   ,  CompuMethod_Distance_m_f32                     (Default_infAraSwcApplTpms_ErrorAltitude)       \
+   ,  CompuMethod_Pressure_mbar_u16                  (Default_infAraSwcApplTpms_PressureAtmospheric) \
+   ,  infAraSwcApplTpms_eGearVehicle_INITIALISING                                                    \
+   ,  infAraSwcApplTpms_eDtcSuppressionNetwork_FALSE                                                 \
+   ,  infAraSwcApplTpms_eStatusNetwork_INACTIVE                                                      \
+   ,  CompuMethod_Temperature_DegC_s16               (Default_infAraSwcApplTpms_TemperatureAir)      \
+   ,  {0}                                                                                            \
+   ,  0, 0, 0, 0, {0}                                                                                \
+   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                       \
+   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                       \
+   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                       \
+   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                       \
+   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                       \
+   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                       \
+   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                       \
+   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                       \
+   ,  infAraSwcApplTpms_eQualitySignal_INVALID                                                       \
 }
 
 #define CfgAra_dSizeReqNvM                                                     1 //TBD: Rename and move to correct header
+#define CfgAra_dSizeReifenEco                                                162 //TBD: Rename and move to correct header
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
+#define CompuMethod_Percentage_u8(p)           ((Type_System_tPercentage_u8)           (p)) //TBD: Move to System.hpp
+#define CompuMethod_Pressure_mbar_u16(p)       ((Type_System_tPressure_mbar_u16)       (p)) //TBD: Move to System.hpp
+#define CompuMethod_OffsetPressure_mbar_s16(p) ((Type_System_tOffsetPressure_mbar_s16) (p)) //TBD: Move to System.hpp
+#define CompuMethod_Speed_KmpH_u16(p)          ((Type_System_tSpeed_KmpH_u16)          (p)) //TBD: Move to System.hpp
+#define CompuMethod_Speed_KmpH_u8(p)           ((Type_System_tSpeed_KmpH_u8)           (p)) //TBD: Move to System.hpp
+#define CompuMethod_Temperature_K_u16(p)       ((Type_System_tTemperature_K_u16)       (p)) //TBD: Move to System.hpp
+#define CompuMethod_Temperature_DegC_s16(p)    ((Type_System_tTemperature_DegC_s16)    (p)) //TBD: Move to System.hpp
+#define CompuMethod_Temperature_DegC_u8(p)     ((Type_System_tTemperature_DegC_u8)     (p)) //TBD: Move to System.hpp
+#define CompuMethod_Date_year_u16(p)           ((Type_System_tDate_year_u16)           (p)) //TBD: Move to System.hpp
+#define CompuMethod_Date_month_u8(p)           ((Type_System_tDate_month_u8)           (p)) //TBD: Move to System.hpp
+#define CompuMethod_Date_day_u8(p)             ((Type_System_tDate_day_u8)             (p)) //TBD: Move to System.hpp
+#define CompuMethod_Time_hour_u8(p)            ((Type_System_tTime_hour_u8)            (p)) //TBD: Move to System.hpp
+#define CompuMethod_Time_min_u8(p)             ((Type_System_tTime_min_u8)             (p)) //TBD: Move to System.hpp
+#define CompuMethod_Time_s_u8(p)               ((Type_System_tTime_s_u8)               (p)) //TBD: Move to System.hpp
+#define CompuMethod_Distance_m_f32(p)          ((Type_System_tDistance_m_f32)          (p)) //TBD: Move to System.hpp
 
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-typedef float32 Type_System_tDistance_m_f32;    //TBD: Move to System.hpp
-typedef uint16  Type_System_tPressure_mbar_u16; //TBD: Move to System.hpp
-typedef uint8   Type_System_tTime_min_u8;       //TBD: Move to System.hpp
-typedef uint8   Type_System_tTime_s_u8;         //TBD: Move to System.hpp
-typedef uint16  Type_System_tTemperature_K_u16; //TBD: Move to System.hpp
-typedef uint16  Type_System_tPercentage_u8;     //TBD: Move to System.hpp
-typedef uint16  Type_System_tSpeed_KmpH_u16;    //TBD: Move to System.hpp
-typedef uint8   Type_System_tSpeed_KmpH_u8;     //TBD: Move to System.hpp
+typedef uint8   Type_System_tPercentage_u8;           //TBD: Move to System.hpp
+typedef uint16  Type_System_tPressure_mbar_u16;       //TBD: Move to System.hpp
+typedef sint16  Type_System_tOffsetPressure_mbar_s16; //TBD: Move to System.hpp
+typedef uint16  Type_System_tSpeed_KmpH_u16;          //TBD: Move to System.hpp
+typedef uint8   Type_System_tSpeed_KmpH_u8;           //TBD: Move to System.hpp
+typedef uint16  Type_System_tTemperature_K_u16;       //TBD: Move to System.hpp
+typedef sint16  Type_System_tTemperature_DegC_s16;    //TBD: Move to System.hpp
+typedef uint8   Type_System_tTemperature_DegC_u8;     //TBD: Move to System.hpp
+typedef uint16  Type_System_tDate_year_u16;           //TBD: Move to System.hpp
+typedef uint8   Type_System_tDate_month_u8;           //TBD: Move to System.hpp
+typedef uint8   Type_System_tDate_day_u8;             //TBD: Move to System.hpp
+typedef uint8   Type_System_tTime_hour_u8;            //TBD: Move to System.hpp
+typedef uint8   Type_System_tTime_min_u8;             //TBD: Move to System.hpp
+typedef uint8   Type_System_tTime_s_u8;               //TBD: Move to System.hpp
+typedef float32 Type_System_tDistance_m_f32;          //TBD: Move to System.hpp
 
 typedef enum __attribute__ ((__packed__)){
       infAraSwcApplTpms_eEnableResetDisplay_Disabled
@@ -311,6 +367,43 @@ typedef enum __attribute__ ((__packed__)){
    ,  infAraSwcApplTpms_eCfgSupParkExt_INVALID = 0xFF
 }Type_infAraSwcApplTpms_eCfgSupParkExt;
 
+typedef enum __attribute__ ((__packed__)){
+      infAraSwcApplTpms_eStrategyLearnTimeout_B
+   ,  infAraSwcApplTpms_eStrategyLearnTimeout_A
+}Type_infAraSwcApplTpms_eStrategyLearnTimeout;
+
+typedef enum __attribute__ ((__packed__)){
+      infAraSwcApplTpms_eBandMarginCoinPal_1
+   ,  infAraSwcApplTpms_eBandMarginCoinPal_2
+   ,  infAraSwcApplTpms_eBandMarginCoinPal_3
+   ,  infAraSwcApplTpms_eBandMarginCoinPal_4
+   ,  infAraSwcApplTpms_eBandMarginCoinPal_5
+   ,  infAraSwcApplTpms_eBandMarginCoinPal_INVALID = 0xFF
+}Type_infAraSwcApplTpms_eBandMarginCoinPal;
+
+typedef enum __attribute__ ((__packed__)){
+      infAraSwcApplTpms_eSwitchDebug_Disabled
+   ,  infAraSwcApplTpms_eSwitchDebug_Enabled
+}Type_infAraSwcApplTpms_eSwitchDebug;
+
+typedef enum __attribute__ ((__packed__)){
+      infAraSwcApplTpms_eGearVehicle_INITIALISING
+   ,  infAraSwcApplTpms_eGearVehicle_PARK    = 2u
+   ,  infAraSwcApplTpms_eGearVehicle_FORWARD = 4u
+   ,  infAraSwcApplTpms_eGearVehicle_REVERSE = 5u
+   ,  infAraSwcApplTpms_eGearVehicle_INVALID = 15u
+}Type_infAraSwcApplTpms_eGearVehicle;
+
+typedef enum __attribute__ ((__packed__)){
+      infAraSwcApplTpms_eDtcSuppressionNetwork_FALSE
+   ,  infAraSwcApplTpms_eDtcSuppressionNetwork_TRUE
+}Type_infAraSwcApplTpms_eDtcSuppressionNetwork;
+
+typedef enum __attribute__ ((__packed__)){
+      infAraSwcApplTpms_eStatusNetwork_INACTIVE
+   ,  infAraSwcApplTpms_eStatusNetwork_ACTIVE
+}Type_infAraSwcApplTpms_eStatusNetwork;
+
 typedef struct{
    Type_infAraSwcApplTpms_eEnableResetDisplay           eEnableResetDisplay;
    Type_infAraSwcApplTpms_eEnableRcpEco                 eEnableRcpEco;
@@ -335,6 +428,12 @@ typedef struct{
    Type_infAraSwcApplTpms_eNumberDetectPrewarn          eNumberDetectPrewarn;
    Type_infAraSwcApplTpms_eMarketLegislation            eMarketLegislation;
    Type_infAraSwcApplTpms_eCfgSupParkExt                eCfgSupParkExt;
+   Type_infAraSwcApplTpms_eStrategyLearnTimeout         eStrategyLearnTimeout;
+   Type_infAraSwcApplTpms_eBandMarginCoinPal            eBandMarginCoinPal;
+   Type_infAraSwcApplTpms_eSwitchDebug                  eSwitchDebug_1;
+   Type_infAraSwcApplTpms_eSwitchDebug                  eSwitchDebug_2;
+   Type_infAraSwcApplTpms_eSwitchDebug                  eSwitchDebug_3;
+   Type_infAraSwcApplTpms_eSwitchDebug                  eSwitchDebug_4;
    Type_System_tPercentage_u8                           tPercentageShiftTRef;
    Type_System_tPercentage_u8                           tPercentageThresholdHoldOffShortCompensatedTemperature;
    Type_System_tPercentage_u8                           tPercentageThresholdRawNoHoldOff;
@@ -344,6 +443,7 @@ typedef struct{
    Type_System_tPercentage_u8                           tPercentageThresholdNotificationSupParkRaw;
    Type_System_tPercentage_u8                           tPercentageThresholdWarnSupParkCompensatedTemperature;
    Type_System_tPercentage_u8                           tPercentageThresholdWarnSupParkRaw;
+   Type_System_tPercentage_u8                           tPercentageLearnPickup;
    Type_System_tPressure_mbar_u16                       tPressureDeltaPLR;
    Type_System_tPressure_mbar_u16                       tPressure_dp_to_i_min;
    Type_System_tPressure_mbar_u16                       tPressureRcpCorrectedMax;
@@ -353,16 +453,22 @@ typedef struct{
    Type_System_tPressure_mbar_u16                       tPressureRangeMaxInit;
    Type_System_tPressure_mbar_u16                       tPressureOffsetTolerance;
    Type_System_tPressure_mbar_u16                       tPressureOffsetToleranceRaw;
-   Type_System_tPressure_mbar_u16                       tPressureOffsetCcmAxleFront;
-   Type_System_tPressure_mbar_u16                       tPressureOffsetCcmAxleRear;
    Type_System_tPressure_mbar_u16                       tPressureThresholdLossMobilitySupPark;
    Type_System_tPressure_mbar_u16                       tPressureTolSupParkRaw;
    Type_System_tPressure_mbar_u16                       tPressureTolSupParkCompensatedTemperature;
    Type_System_tPressure_mbar_u16                       tPressureInitAxleFront;
    Type_System_tPressure_mbar_u16                       tPressureInitAxleRear;
+   Type_System_tOffsetPressure_mbar_s16                 tPressureOffsetSpeedCcmAxleFront;
+   Type_System_tOffsetPressure_mbar_s16                 tPressureOffsetSpeedCcmAxleRear;
    Type_System_tSpeed_KmpH_u16                          tSpeedThresholdCcm;
    Type_System_tSpeed_KmpH_u8                           tSpeedHysterisisCcm;
    Type_System_tTemperature_K_u16                       tTemperatureAmbientPrewarn;
+   Type_System_tTemperature_DegC_u8                     tTemperatureTrefThresholdDown;
+   Type_System_tTemperature_DegC_u8                     tTemperatureTrefThresholdUp;
+   Type_System_tDate_day_u8                             tDateTrefHoldOffDown;
+   Type_System_tDate_day_u8                             tDateTrefHoldOffUp;
+   Type_System_tTime_hour_u8                            tTimeTrefConstFiltDown;
+   Type_System_tTime_hour_u8                            tTimeTrefConstFiltUp;
    Type_System_tTime_min_u8                             tTimeHoldOffCooling;
    Type_System_tTime_min_u8                             tTimeHoldOffLong;
    Type_System_tTime_min_u8                             tTimeCorrelationMax;
@@ -373,41 +479,50 @@ typedef struct{
    Type_System_tTime_s_u8                               tTimeHoldOffCcm;
 }Type_infAraSwcApplTpms_stParameterCodingTpms;
 
-typedef uint8   Type_infAraSwcApplTpms_eStateVehicle;
-typedef uint8   Type_infAraSwcApplTpms_stDateAndTime;
-typedef uint8   Type_infAraSwcApplTpms_eGearVehicle;
-typedef uint8   Type_infAraSwcApplTpms_eStatusNetwork;
-typedef uint8   Type_infAraSwcApplTpms_stCodingErfsCaf;
-typedef uint8   Type_infAraSwcApplTpms_stAddressesBlockNvM;
-typedef uint8   Type_infAraSwcApplTpms_eReqNvM;
+typedef struct{
+   uint8 ReifenEco[CfgAra_dSizeReifenEco]; //TBD: Data type
+}Type_infAraSwcApplTpms_stCodingErfsCaf;
 
 typedef struct{
-   Type_infAraSwcApplTpms_stParameterCodingTpms stParameterCodingTpms;
-   Type_System_tDistance_m_f32                  tAltitude;
-   Type_System_tDistance_m_f32                  tErrorAltitude;
-   Type_System_tPressure_mbar_u16               tPressureAtmospheric;
+   Type_System_tTime_hour_u8  tTimeDisplayHour;
+   Type_System_tTime_min_u8   tTimeDisplayMin;
+   Type_System_tTime_s_u8     tTimeDisplaySec;
+   Type_System_tDate_day_u8   tDateDisplayDay;
+   Type_System_tDate_month_u8 tDateDisplayMonth;
+   Type_System_tDate_year_u16 tDateDisplayYear;
+}Type_infAraSwcApplTpms_stDateAndTime;
 
-   Type_infAraSwcApplTpms_eStateVehicle         eStateVehicle;
-   uint16                                       u16VelocityVehicle;
-   uint32                                       u32Odometer;
-   sint16                                       s16TemperatureAir;
-   Type_infAraSwcApplTpms_stDateAndTime         stDateAndTime;
-   uint32                                       u32TimeRelative;
-   Type_infAraSwcApplTpms_eGearVehicle          eGearVehicle;
-   Type_infAraSwcApplTpms_eStatusNetwork        eStatusNetwork;
-   uint8                                        u8DtcSuppressionNetwork;
-   Type_infAraSwcApplTpms_stCodingErfsCaf       stCodingErfsCaf;
-   Type_infAraSwcApplTpms_stAddressesBlockNvM   stAddressesBlockNvM;
-   Type_infAraSwcApplTpms_eReqNvM               aeListReqNvM[CfgAra_dSizeReqNvM];
-   Type_infAraSwcApplTpms_eQualitySignal        eQualitySignalStateVehicle;
-   Type_infAraSwcApplTpms_eQualitySignal        eQualitySignalVelocityVehicle;
-   Type_infAraSwcApplTpms_eQualitySignal        eQualitySignalOdometer;
-   Type_infAraSwcApplTpms_eQualitySignal        eQualitySignalTemperatureAir;
-   Type_infAraSwcApplTpms_eQualitySignal        eQualitySignalDateAndTime;
-   Type_infAraSwcApplTpms_eQualitySignal        eQualitySignalPressureAtmospheric;
-   Type_infAraSwcApplTpms_eQualitySignal        eQualitySignalTimeRelative;
-   Type_infAraSwcApplTpms_eQualitySignal        eQualitySignalAltitude;
-   Type_infAraSwcApplTpms_eQualitySignal        eQualitySignalGearVehicle;
+typedef uint8 Type_infAraSwcApplTpms_eStateVehicle;
+typedef uint8 Type_infAraSwcApplTpms_stAddressesBlockNvM;
+typedef uint8 Type_infAraSwcApplTpms_eReqNvM;
+
+typedef struct{
+   Type_infAraSwcApplTpms_stParameterCodingTpms  stParameterCodingTpms;
+   Type_infAraSwcApplTpms_stCodingErfsCaf        stCodingErfsCaf;
+   Type_infAraSwcApplTpms_stDateAndTime          stDateAndTime;
+   Type_System_tDistance_m_f32                   tAltitude;
+   Type_System_tDistance_m_f32                   tErrorAltitude;
+   Type_System_tPressure_mbar_u16                tPressureAtmospheric;
+   Type_infAraSwcApplTpms_eGearVehicle           eGearVehicle;
+   Type_infAraSwcApplTpms_eDtcSuppressionNetwork eDtcSuppressionNetwork;
+   Type_infAraSwcApplTpms_eStatusNetwork         eStatusNetwork;
+   Type_System_tTemperature_DegC_s16             tTemperatureAir;
+
+   Type_infAraSwcApplTpms_eStateVehicle          eStateVehicle;
+   uint16                                        u16VelocityVehicle;
+   uint32                                        u32Odometer;
+   uint32                                        u32TimeRelative;
+   Type_infAraSwcApplTpms_stAddressesBlockNvM    stAddressesBlockNvM;
+   Type_infAraSwcApplTpms_eReqNvM                aeListReqNvM[CfgAra_dSizeReqNvM];
+   Type_infAraSwcApplTpms_eQualitySignal         eQualitySignalStateVehicle;
+   Type_infAraSwcApplTpms_eQualitySignal         eQualitySignalVelocityVehicle;
+   Type_infAraSwcApplTpms_eQualitySignal         eQualitySignalOdometer;
+   Type_infAraSwcApplTpms_eQualitySignal         eQualitySignalTemperatureAir;
+   Type_infAraSwcApplTpms_eQualitySignal         eQualitySignalDateAndTime;
+   Type_infAraSwcApplTpms_eQualitySignal         eQualitySignalPressureAtmospheric;
+   Type_infAraSwcApplTpms_eQualitySignal         eQualitySignalTimeRelative;
+   Type_infAraSwcApplTpms_eQualitySignal         eQualitySignalAltitude;
+   Type_infAraSwcApplTpms_eQualitySignal         eQualitySignalGearVehicle;
 }Type_infAraSwcApplTpms_stReceivers;
 
 typedef uint8 Dtms_nvm_block_ids_et; //TBD: Move to NvM_Types.hpp
