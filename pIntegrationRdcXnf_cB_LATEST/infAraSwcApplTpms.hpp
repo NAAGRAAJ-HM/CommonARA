@@ -157,17 +157,19 @@
    ,  CompuMethod_Time_s_u8               (Default_infAraSwcApplTpms_TimeHoldOffCcm)                                        \
 }
 
+#define Default_infAraSwcApplTpms_stDateAndTime {                                           \
+      CompuMethod_Time_hour_u8                 (Default_infAraSwcApplTpms_TimeDisplayHour)  \
+   ,  CompuMethod_Time_min_u8                  (Default_infAraSwcApplTpms_TimeDisplayMin)   \
+   ,  CompuMethod_Time_s_u8                    (Default_infAraSwcApplTpms_TimeDisplaySec)   \
+   ,  CompuMethod_Date_day_u8                  (Default_infAraSwcApplTpms_DateDisplayDay)   \
+   ,  CompuMethod_Date_month_u8                (Default_infAraSwcApplTpms_DateDisplayMonth) \
+   ,  CompuMethod_Date_year_u16                (Default_infAraSwcApplTpms_DateDisplayYear)  \
+}
+
 #define Default_infAraSwcApplTpms_stReceivers {                                                      \
       Default_infAraSwcApplTpms_stParameterCodingTpms                                                \
    ,  {{0}}                                                                                          \
-   ,  {                                                                                              \
-            CompuMethod_Time_hour_u8                 (Default_infAraSwcApplTpms_TimeDisplayHour)     \
-         ,  CompuMethod_Time_min_u8                  (Default_infAraSwcApplTpms_TimeDisplayMin)      \
-         ,  CompuMethod_Time_s_u8                    (Default_infAraSwcApplTpms_TimeDisplaySec)      \
-         ,  CompuMethod_Date_day_u8                  (Default_infAraSwcApplTpms_DateDisplayDay)      \
-         ,  CompuMethod_Date_month_u8                (Default_infAraSwcApplTpms_DateDisplayMonth)    \
-         ,  CompuMethod_Date_year_u16                (Default_infAraSwcApplTpms_DateDisplayYear)     \
-      }                                                                                              \
+   ,  Default_infAraSwcApplTpms_stDateAndTime                                                        \
    ,  CompuMethod_Distance_m_f32                     (Default_infAraSwcApplTpms_Altitude)            \
    ,  CompuMethod_Distance_m_f32                     (Default_infAraSwcApplTpms_ErrorAltitude)       \
    ,  CompuMethod_Pressure_mbar_u16                  (Default_infAraSwcApplTpms_PressureAtmospheric) \
