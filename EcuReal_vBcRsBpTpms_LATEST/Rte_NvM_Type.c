@@ -1,7 +1,7 @@
 #include "Std_Types.hpp"
 
 #include "Ara_NvM_Type.hpp"
-#include "Fee_30_SmallSector.hpp"
+#include "EcuabFee.hpp"
 #include "Fls.hpp"
 #include "NvM.hpp"
 #include "Dem_Cfg_AssertionChk.hpp"
